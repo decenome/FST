@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <bitset>
+#include <sstream>
 using namespace std;
 
 typedef unsigned int uint;
@@ -12,20 +13,6 @@ auto pr(T... t){
 	cout<<endl;
 }
 
-
-auto genC1(double x){
-	string s0="0123456789abcdef";
-	double y=x-int(x);
-	int z;
-	string s;
-	for(int i=0;i<8;i++){
-		y*=16;
-		z=int(y);
-		y-=z;
-		s+=s0[z];
-	}
-	return s;
-}
 
 uint genC2(double x){
 	double y=x-int(x);
@@ -191,18 +178,24 @@ auto gen(string data){
 		HS[i-1][7]+h
 		});
 	}
-	cout<<hex;
+	//cout<<hex;
+	//for(auto i:HS[N])
+	//	cout<<i;
+	//cout<<endl;
+	//return HS[N];
+	stringstream ss;
+	string ostr;
 	for(auto i:HS[N])
-		cout<<i;
-	cout<<endl;
-	return HS[N];
+		ss<<hex<<i;
+	ss>>ostr;
+	return ostr;
 }
 
 
 int main(){
 	string s;
 	while(cin>>s)
-		gen(s);	
+		cout<<gen(s)<<endl;	
 	return 0;
 }
 
