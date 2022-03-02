@@ -1,3 +1,1 @@
-# E
-# T
-# H
+# C++ and Rust demo
